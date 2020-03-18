@@ -1,9 +1,10 @@
 import React from 'react'
+import Heading from './components/Heading'
 
 const App = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <Heading />
     </div>
   )
 }
