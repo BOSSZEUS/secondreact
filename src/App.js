@@ -4,36 +4,65 @@ import React, { Component } from 'react'
 class App extends Component {
 
   state = {
-    text: '',
-    message: ''
+    username: '',
+    email: '',
+    password: '',
+    uname: '',
+    em: '',
+    pwd: ''
   }
 
   handleInputChange = event => {
-    this.setState({ text: event.target.value })
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   handleFormSubmit = event => {
     event.preventDefault()
-    console.log(this.state.text)
-    this.setState({ text: '', message: this.state.text })
+    this.setState({
+      uname: this.state.username,
+      em: this.state.email,
+      pwd: this.state.password,
+      username: '',
+      email: '',
+      password: ''
+    })
   }
 
   render() {
     return (
       <>
-        <h1>{this.state.message}</h1>
         <form>
           <p>
-            <label htmlFor="text">text</label>
+            <label htmlFor="username">username</label>
             <input
               type="text"
-              name="text"
-              id="text"
-              value={this.state.text}
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChange} />
+          </p>
+          <p>
+            <label htmlFor="email">email</label>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleInputChange} />
+          </p>
+          <p>
+            <label htmlFor="password">password</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
               onChange={this.handleInputChange} />
           </p>
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
+        <div>
+          <h1>{this.state.uname}</h1>
+          <h2>{this.state.em}</h2>
+          <h3>{this.state.pwd}</h3>
+        </div>
       </>
     )
   }
