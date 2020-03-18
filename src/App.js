@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NumberButton from './components/NumberButton'
 
 class App extends Component {
 
@@ -6,21 +7,23 @@ class App extends Component {
     count: 0
   }
 
-  handleIncrementCount = () => {
-    this.setState({ count: this.state.count + 1 })
+  handleIncrementCount = value => {
+    this.setState({ count: this.state.count + value })
   }
 
-  // write a function that moves count down by 1
-
-  // write a function that moves count up by multiplying count by 2
-
-  // write a function that moves count down by dividing count by 2
-  
-  render () {
+  render() {
     return (
       <div>
         <h1>Count: {this.state.count}</h1>
-        <button onClick={this.handleIncrementCount}>Click Me</button>
+        <NumberButton
+          number={5} 
+          handleIncrementCount={this.handleIncrementCount} />
+        <NumberButton
+          number={7} 
+          handleIncrementCount={this.handleIncrementCount} />
+        <NumberButton
+          number={12} 
+          handleIncrementCount={this.handleIncrementCount} />
       </div>
     )
   }
