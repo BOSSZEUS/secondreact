@@ -1,12 +1,23 @@
-import React from 'react'
-import Heading from './components/Heading'
+import React, { Component } from 'react'
 
-const App = () => {
-  return (
-    <div>
-      <Heading />
-    </div>
-  )
+class App extends Component {
+
+  state = {
+    count: 0
+  }
+
+  handleIncrementCount = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+  
+  render () {
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.handleIncrementCount}>Click Me</button>
+      </div>
+    )
+  }
 }
 
 export default App
